@@ -5,7 +5,7 @@ namespace Models
     public class Escandalos
     {
         [Key]
-        public Guid IdEscandalo { get; set; }
+        public Guid Id { get; set; }
         public Guid IdPolitico { get; set; }
         public string Titulo { get; set; } = string.Empty;
 

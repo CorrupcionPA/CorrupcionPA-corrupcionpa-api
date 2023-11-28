@@ -4,6 +4,7 @@ using Corrupcion.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Corrupcion.API.Migrations
 {
     [DbContext(typeof(CorrupcionContext))]
-    partial class CorrupcionContextModelSnapshot : ModelSnapshot
+    [Migration("20231128050438_ChagnedEscandalosIdName")]
+    partial class ChagnedEscandalosIdName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

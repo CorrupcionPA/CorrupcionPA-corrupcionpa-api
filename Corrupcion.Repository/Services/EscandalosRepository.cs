@@ -22,7 +22,7 @@ namespace Corrupcion.Repository.Services
 
         public async Task<Escandalos> DeleteEscandalosAsync(Guid idEscandalo)
         {
-            var escandalo = await _corrupcionContext.Escandalos.Where(e => e.IdEscandalo == idEscandalo).FirstOrDefaultAsync();
+            var escandalo = await _corrupcionContext.Escandalos.Where(e => e.Id == idEscandalo).FirstOrDefaultAsync();
             _corrupcionContext.Escandalos.Remove(escandalo);
             return escandalo;
         }
@@ -40,7 +40,7 @@ namespace Corrupcion.Repository.Services
         public async Task<Escandalos> UpdateEscandalosAsync(Escandalos escandalo)
         {
             
-            Escandalos updatedEscandalo = await _corrupcionContext.Escandalos.Where(e => e.IdEscandalo == escandalo.IdEscandalo).FirstOrDefaultAsync();
+            Escandalos updatedEscandalo = await _corrupcionContext.Escandalos.Where(e => e.Id == escandalo.Id).FirstOrDefaultAsync();
             updatedEscandalo.Titulo = escandalo.Titulo;
             updatedEscandalo.Fuente = escandalo.Fuente;
             updatedEscandalo.IdPolitico = updatedEscandalo.IdPolitico;
