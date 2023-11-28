@@ -18,8 +18,7 @@ namespace Corrupcion.Helpers
         }
 
         public DbSet<Partidos> Partidos { get; set; }
-        public DbSet<Presidentes> Presidentes { get; set; }
-        public DbSet<Gobiernos> Gobiernos { get; set; }
+        public DbSet<Politicos> Politicos { get; set; }
         public DbSet<Escandalos> Escandalos { get; set; }
 
     }

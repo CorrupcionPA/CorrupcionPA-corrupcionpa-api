@@ -37,7 +37,7 @@ namespace Corrupcion.API.Controllers
 
         [HttpGet]
         [Route("GetPartido/{idPartido}", Name = "GetPartido")]
-        public async Task<IActionResult> GetPartido([FromRoute] int idPartido)
+        public async Task<IActionResult> GetPartido([FromRoute] Guid idPartido)
         {
             try
             {
@@ -105,7 +105,7 @@ namespace Corrupcion.API.Controllers
 
         [HttpDelete]
         [Route("DeletePartido/{idPartido}", Name = "DeletePartido")]
-        public async Task<IActionResult> DeletePartido([FromRoute] int idPartido)
+        public async Task<IActionResult> DeletePartido([FromRoute] Guid idPartido)
         {
             try
             {

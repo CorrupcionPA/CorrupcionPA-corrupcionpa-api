@@ -7,9 +7,9 @@ namespace Corrupcion.Repository.Interfaces
     {
 
         Task<List<Partidos>> GetAllPartidosAsync();
-        Task<Partidos> GetPartidoAsync(int idPartido);
+        Task<Partidos> GetPartidoAsync(Guid idPartido);
         Task<Partidos> UpdatePartidoAsync(Partidos partido);
         Task<Partidos> AddPartidoAsync(Partidos partido);
-        Task<Partidos> DeletePartidoAsync(int idPartido);
+        Task<Partidos> DeletePartidoAsync(Guid idPartido);
     }
 }

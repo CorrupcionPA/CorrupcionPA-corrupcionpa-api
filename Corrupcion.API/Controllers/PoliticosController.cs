@@ -8,24 +8,24 @@ namespace Corrupcion.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PresidentesController : ControllerBase
+    public class PoliticosController : ControllerBase
     {
-        private readonly IPresidentesService _presidentesService;
+        private readonly IPoliticosService _politicosService;
         private readonly InfoLogger _infoLogger;
-        public PresidentesController(IPresidentesService presidentesService, InfoLogger infoLogger)
+        public PoliticosController(IPoliticosService politicosService, InfoLogger infoLogger)
         {
-            _presidentesService = presidentesService;
+            _politicosService = politicosService;
             _infoLogger = infoLogger;
         }
 
         [HttpGet]
-        [Route("GetAllPresidentes", Name = "GetAllPresidentes")]
-        public async Task<IActionResult> GetAllPresidentes()
+        [Route("GetAllPoliticos", Name = "GetAllPoliticos")]
+        public async Task<IActionResult> GetAllPoliticos()
         {
             try
             {
                 _infoLogger.LogRequest(RequestTypeEnum.GET);
-                var response = await _presidentesService.GetAllPresidentes();
+                var response = await _politicosService.GetAllPoliticos();
 
                 if (response is not null)
                     return Ok(response);
@@ -40,13 +40,13 @@ namespace Corrupcion.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetPresidente/{idPresidente}", Name = "GetPresidente")]
-        public async Task<IActionResult> GetPresidente([FromRoute] int idPresidente)
+        [Route("GetPolitico/{idPolitico}", Name = "GetPolitico")]
+        public async Task<IActionResult> GetPolitico([FromRoute] int idPolitico)
         {
             try
             {
                 _infoLogger.LogRequest(RequestTypeEnum.GET);
-                var response = await _presidentesService.GetPresidente(idPresidente);
+                var response = await _politicosService.GetPolitico(idPolitico);
 
                 if (response is not null)
                     return Ok(response);
@@ -63,8 +63,8 @@ namespace Corrupcion.API.Controllers
 
 
         [HttpPost]
-        [Route("AddPresidente", Name = "AddPresidente")]
-        public async Task<IActionResult> AddPresidente([FromBody] Presidentes presidente)
+        [Route("AddPolitico", Name = "AddPolitico")]
+        public async Task<IActionResult> AddPolitico([FromBody] Politicos politico)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace Corrupcion.API.Controllers
                     return BadRequest(new { message = "The object model is not valid" });
                 }
 
-                var response = await _presidentesService.AddPresidente(presidente);
+                var response = await _politicosService.AddPolitico(politico);
 
                 if (response is not null)
                     return Ok(response);
@@ -92,8 +92,8 @@ namespace Corrupcion.API.Controllers
         }
 
         [HttpPut]
-        [Route("UpdatePresidente", Name = "UpdatePresidente")]
-        public async Task<IActionResult> UpdatePresidente([FromBody] Presidentes presidente)
+        [Route("UpdatePolitico", Name = "UpdatePolitico")]
+        public async Task<IActionResult> UpdatePolitico([FromBody] Politicos politico)
         {
             try
             {
@@ -105,7 +105,7 @@ namespace Corrupcion.API.Controllers
                     return BadRequest(new { message = "The object model is not valid" });
                 }
 
-                var response = await _presidentesService.UpdatePresidente(presidente);
+                var response = await _politicosService.UpdatePolitico(politico);
 
                 if (response is not null)
                     return Ok(response);
@@ -121,17 +121,17 @@ namespace Corrupcion.API.Controllers
         }
 
         [HttpDelete]
-        [Route("DeletePresidente/{idPresidente}", Name = "DeletePresidente")]
-        public async Task<IActionResult> DeletePresidente([FromRoute] int idPresidente)
+        [Route("DeletePolitico/{idPolitico}", Name = "DeletePolitico")]
+        public async Task<IActionResult> DeletePolitico([FromRoute] int idPolitico)
         {
             try
             {
                 _infoLogger.LogRequest(RequestTypeEnum.DELETE);
 
-                var presidente = GetPresidente(idPresidente);
-                if (presidente is not null)
+                var politico = GetPolitico(idPolitico);
+                if (politico is not null)
                 {
-                    var response = await _presidentesService.DeletePresidente(idPresidente);
+                    var response = await _politicosService.DeletePolitico(idPolitico);
 
                     if (response is not null)
                         return Ok(response);

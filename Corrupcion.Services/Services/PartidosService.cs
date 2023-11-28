@@ -21,7 +21,7 @@ namespace Corrupcion.Services.Services
             return _partidosRepository.AddPartidoAsync(partido);
         }
 
-        public Task<Partidos> DeletePartidoAsync(int idPartido)
+        public Task<Partidos> DeletePartidoAsync(Guid idPartido)
         {
             return _partidosRepository.DeletePartidoAsync(idPartido);
         }
@@ -31,7 +31,7 @@ namespace Corrupcion.Services.Services
             return _partidosRepository.GetAllPartidosAsync();
         }
 
-        public Task<Partidos> GetPartidoAsync(int idPartido)
+        public Task<Partidos> GetPartidoAsync(Guid idPartido)
         {
             return _partidosRepository.GetPartidoAsync(idPartido);
         }
