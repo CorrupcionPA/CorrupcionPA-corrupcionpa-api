@@ -37,7 +37,7 @@ namespace Corrupcion.Controllers
 
         [HttpGet]
         [Route("GetEscandalo/{idEscandalo}", Name = "GetEscandalo")]
-        public async Task<IActionResult> GetEscandalo(int idEscandalo)
+        public async Task<IActionResult> GetEscandalo(Guid idEscandalo)
         {
             try
             {
@@ -105,7 +105,7 @@ namespace Corrupcion.Controllers
 
         [HttpDelete]
         [Route("DeleteEscandalos/{idEscandalo}", Name = "DeleteEscandalos")]
-        public async Task<IActionResult> DeleteEscandalosAsync([FromBody] int idEscandalo)
+        public async Task<IActionResult> DeleteEscandalosAsync([FromBody] Guid idEscandalo)
         {
             try
             {

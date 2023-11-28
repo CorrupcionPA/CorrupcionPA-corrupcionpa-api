@@ -18,12 +18,12 @@ namespace Corrupcion.Services.Services
             return await _escandalosRepository.AddEscandalosAsync(escandalo);
         }
 
-        public async Task<Escandalos> DeleteEscandalosAsync(int idEscandalo)
+        public async Task<Escandalos> DeleteEscandalosAsync(Guid idEscandalo)
         {
             return await _escandalosRepository.DeleteEscandalosAsync(idEscandalo);
         }
 
-        public async Task<Escandalos> GetEscandaloAsync(int idEscandalo)
+        public async Task<Escandalos> GetEscandaloAsync(Guid idEscandalo)
         {
             return await _escandalosRepository.GetEscandaloAsync(idEscandalo);
         }

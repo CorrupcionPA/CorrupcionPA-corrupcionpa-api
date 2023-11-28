@@ -12,10 +12,8 @@ builder.Services.AddDbContext<CorrupcionContext>();
 builder.Services.AddScoped<InfoLogger>();
 builder.Services.AddScoped<IPartidosRepository, PartidosRepository>();
 builder.Services.AddScoped<IPartidosService, PartidosService>();
-builder.Services.AddScoped<IGobiernosRepository, GobiernosRepository>();
-builder.Services.AddScoped<IGobiernosService, GobiernosService>();
-builder.Services.AddScoped<IPresidentesService, PresidentesService>();
-builder.Services.AddScoped<IPresidentesRepository, PresidentesRepository>();
+builder.Services.AddScoped<IPoliticosService, PoliticosService>();
+builder.Services.AddScoped<IPoliticosRepository, PoliticosRepository>();
 builder.Services.AddScoped<IEscandalosService, EscandalosService>();
 builder.Services.AddScoped<IEscandalosRepository, EscandalosRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -5,10 +5,10 @@ namespace Models
     public class Escandalos
     {
         [Key]
-        public int IdEscandalo { get; set; }
-        public DateTime Fecha { get; set; }
-        public string Descripcion { get; set; } = string.Empty;
+        public Guid IdEscandalo { get; set; }
+        public Guid IdPolitico { get; set; }
+        public string Titulo { get; set; } = string.Empty;
 
-        public int IdGobierno { get; set; }
+        public string Fuente { get; set; } = string.Empty;
     }
 }

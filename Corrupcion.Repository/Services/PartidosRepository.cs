@@ -19,7 +19,7 @@ namespace Corrupcion.Repository.Services
             return partido;
         }
 
-        public async Task<Partidos> DeletePartidoAsync(int idPartido)
+        public async Task<Partidos> DeletePartidoAsync(Guid idPartido)
         {
             Partidos partido = await _corrupcionContext.Partidos.FindAsync(idPartido);
             _corrupcionContext.Partidos.Remove(partido);
@@ -31,17 +31,18 @@ namespace Corrupcion.Repository.Services
             return await _corrupcionContext.Partidos.ToListAsync();
         }
 
-        public async Task<Partidos> GetPartidoAsync(int idPartido)
+        public async Task<Partidos> GetPartidoAsync(Guid idPartido)
         {
             return await _corrupcionContext.Partidos.FindAsync(idPartido);
         }
 
         public async Task<Partidos> UpdatePartidoAsync(Partidos partido)
         {
-            Partidos updatedPartido = await _corrupcionContext.Partidos.Where(p => p.IdPartido == partido.IdPartido).FirstOrDefaultAsync();
+            Partidos updatedPartido = await _corrupcionContext.Partidos.Where(p => p.Id == partido.Id).FirstOrDefaultAsync();
 
             updatedPartido.NombrePartido = partido.NombrePartido;
-            updatedPartido.NombreAbreviado = partido.NombreAbreviado;
+            updatedPartido.CantidadMiembros = partido.CantidadMiembros;
+            updatedPartido.NombreFundador = partido.NombreFundador;
             updatedPartido.FechaCreacion = partido.FechaCreacion;
 
             _corrupcionContext.Partidos.Update(updatedPartido);
